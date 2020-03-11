@@ -25,11 +25,11 @@ require 'rails_helper'
     end
      it 'should assign instance variable for title header' do
       get :index, { sort: 'title'}
-      expect(assigns(:title_header)).to eql('hilite')
+      expect(assigns(:title_header)).to match('hilite')
     end
      it 'should assign instance variable for release_date header' do
       get :index, { sort: 'release_date'}
-      expect(assigns(:date_header)).to eql('hilite')
+      expect(assigns(:date_header)).to match('hilite')
     end
   end
    describe 'GET new' do

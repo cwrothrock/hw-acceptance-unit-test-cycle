@@ -32,6 +32,9 @@ require 'support/factory_bot'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+  config.before(:all) { FactoryBot.reload }
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -55,5 +58,4 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
   
-  config.include FactoryBot::Syntax::Methods
 end
